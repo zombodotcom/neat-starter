@@ -1,21 +1,22 @@
-<div class="fixed top-0 w-full bg-white z-50 shadow-lg">
+<div class="{{ 'lg:fixed' if path == 'home' }} w-full">
   <nav
     class="flex items-center justify-center lg:justify-between flex-wrap p-6 lg:px-0 container mx-auto"
     x-data="{ isOpen: false }"
     @keydown.escape="isOpen = false"
     @click.away="isOpen = false"
   >
-    <!-- Logo -->
+    <!-- Logo using FontAwesome icon -->
     <div class="flex items-center">
       <a
         href="/"
         class="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500 font-bold text-lg"
       >
-        Tune Me Studio
+        <i class="fas fa-tree mr-2"></i>Tune Me Studio
+        <i class="fas fa-sun mr-2"></i>
       </a>
     </div>
 
-    <!-- Toggle button (hidden on large screens) -->
+    <!-- Toggle button (hidden on large screens) using FontAwesome -->
     <button
       @click="isOpen = !isOpen"
       type="button"
@@ -23,25 +24,7 @@
       :class="{ 'transition transform-180': isOpen }"
       aria-label="Menu"
     >
-      <svg
-        class="h-6 w-6 fill-current"
-        xmlns="http://www.w3.org/2000/svg"
-        viewbox="0 0 24 24"
-      >
-        <!-- Menu Icon -->
-        <path
-          x-show="!isOpen"
-          fill-rule="evenodd"
-          d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"
-        />
-        <!-- Close Icon -->
-        <path
-          x-show="isOpen"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
-          d="M18.278 16.864a1 1 0 0 1-1.414 1.414l-4.829-4.828-4.828 4.828a1 1 0 0 1-1.414-1.414l4.828-4.829-4.828-4.828a1 1 0 0 1 1.414-1.414l4.829 4.828 4.828-4.828a1 1 0 1 1 1.414 1.414l-4.828 4.829 4.828 4.828z"
-        />
-      </svg>
+      <i :class="isOpen ? 'fas fa-times' : 'fas fa-bars'" class="h-6 w-6"></i>
     </button>
 
     <!-- Menu -->
@@ -51,6 +34,7 @@
       x-show.transition="true"
     >
       {% if navigation.items %}
+
       <ul
         class="pt-6 lg:pt-0 list-reset lg:flex justify-end flex-1 items-center"
       >
@@ -65,13 +49,8 @@
         </li>
         {% endfor %}
       </ul>
+
       {% endif %}
     </div>
   </nav>
 </div>
-
-<!-- Ensure the rest of the content takes into account the navbar height -->
-<main class="mt-24">
-  <!-- Your main content here -->
-  {{ content | safe }}
-</main>

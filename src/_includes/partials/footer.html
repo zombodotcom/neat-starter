@@ -1,9 +1,30 @@
-<footer class="{{ 'fixed' if path == 'home' }} bottom-0 text-center w-full py-4">
-    <small class="text-gray-500">Copyright ©
-        {{settings.name}}
-        2020. Made with ❤ by
-        <a href="{{settings.url}}" target="_blank" class="underline">{{settings.author}}</a>
-        •
-        <a href="https://github.com/surjithctly/neat-starter" class="underline" target="_blank" rel="noopener">View on Github</a>
-    </small>
+<footer
+  class="{{ 'fixed' if path == 'home' }} bottom-0 text-center w-full py-4"
+>
+  <div class="container mx-auto">
+    <div class="flex justify-center space-x-4">
+      <a
+        href="https://www.facebook.com/JoClareD"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500"
+      >
+        <i class="fab fa-facebook-square fa-2x"></i>
+      </a>
+      <a
+        href="https://www.instagram.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500"
+      >
+        <i class="fab fa-instagram fa-2x"></i>
+      </a>
+      <a href="mailto:Joni@tunemestudio.com">
+        <i
+          class="fas fa-envelope fa-2x bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500"
+        ></i>
+      </a>
+    </div>
+    <p class="mt-4 text-sm">© 2024 Joni Clare. All rights reserved.</p>
+  </div>
 </footer>
